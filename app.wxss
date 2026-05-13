@@ -1,0 +1,70 @@
+/* 全局字体与主题色 */
+page {
+  background-color: #F5F7FF;
+  color: #1F2430;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+}
+
+.text-muted {
+  color: #8A8F9C;
+}
+
+/* 通用按钮样式 */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12rpx 28rpx;
+  background: linear-gradient(135deg, #5B7CFA 0%, #1a9242 100%);
+  color: #ffffff;
+  border-radius: 16rpx;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12rpx 28rpx;
+  background: #E9ECFF;
+  color: #58cf6c;
+  border-radius: 16rpx;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.btn-secondary:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+/* 通用卡片样式 */
+.card {
+  background: #ffffff;
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 24rpx rgba(36, 46, 66, 0.08);
+  padding: 24rpx;
+}
+
+/* 渐变背景容器 */
+.gradient-bg {
+  background: linear-gradient(160deg, #3ea54c 0%, #5bfa75 100%);
+  color: #ffffff;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 700;
+}
+
+.spacer-24 { height: 24rpx; }
+.spacer-32 { height: 32rpx; }
+.spacer-48 { height: 48rpx; }
+
+

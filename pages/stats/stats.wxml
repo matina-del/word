@@ -1,0 +1,72 @@
+<view class="page stats-page">
+  <!-- 顶部统计 2x2 -->
+  <view class="grid">
+    <view class="card stat-card">
+      <view class="label">学习天数</view>
+      <view class="num">{{cards.studyDays}}<text class="unit"> 天</text></view>
+    </view>
+    <view class="card stat-card">
+      <view class="label">已学单词</view>
+      <view class="num">{{cards.learnedWords}}<text class="unit"> 个</text></view>
+    </view>
+    <view class="card stat-card">
+      <view class="label">连续打卡</view>
+      <view class="num">{{cards.continuousDays}}<text class="unit"> 天 🔥</text></view>
+    </view>
+    <view class="card stat-card">
+      <view class="label">掌握率</view>
+      <view class="num">{{cards.masteryRate}}<text class="unit"> %</text></view>
+    </view>
+  </view>
+
+  <!-- 最近7天学习情况 -->
+  <view class="chart card">
+    <view class="chart-title">最近7天学习情况</view>
+    <view class="chart-placeholder">
+      <view class="placeholder-text">📊 图表功能待集成</view>
+      <view class="placeholder-desc">可接入 ECharts 组件显示学习曲线</view>
+      <view class="placeholder-data" wx:if="{{chartData.length > 0}}">
+        <view wx:for="{{chartData}}" wx:key="date" class="data-item">
+          <text class="data-date">{{item.date}}</text>
+          <text class="data-count">{{item.count}}个</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 单词掌握情况 -->
+  <view class="chart card">
+    <view class="chart-title">单词掌握情况</view>
+    <view class="chart-placeholder">
+      <view class="placeholder-text">📊 图表功能待集成</view>
+      <view class="placeholder-desc">可接入 ECharts 组件显示分布饼图</view>
+      <view class="placeholder-data" wx:if="{{wordStats}}">
+        <view class="data-item">
+          <text>已掌握：{{wordStats.mastered}} 个</text>
+        </view>
+        <view class="data-item">
+          <text>学习中：{{wordStats.learning}} 个</text>
+        </view>
+        <view class="data-item">
+          <text>未学习：{{wordStats.unlearned}} 个</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 成就徽章 -->
+  <view class="card achievements">
+    <view class="chart-title">我的成就</view>
+    <view class="badges">
+      <block wx:for="{{achievements}}" wx:key="id">
+        <view class="badge {{item.unlocked?'on':'off'}}">
+          <view class="icon">{{item.icon}}</view>
+          <view class="name">{{item.name}}</view>
+          <view class="desc">{{item.desc}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>
+
+

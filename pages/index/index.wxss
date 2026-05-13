@@ -1,0 +1,105 @@
+.index-page {}
+
+.top-hero {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #ffffff;
+  padding: 48rpx 32rpx 40rpx 32rpx;
+  border-bottom-left-radius: 32rpx;
+  border-bottom-right-radius: 32rpx;
+}
+
+.hero-row {
+  display: flex;
+  flex-direction: column;
+  gap: 12rpx;
+}
+.hero-greet {
+  font-size: 40rpx;
+  font-weight: 800;
+}
+.hero-level {
+  font-size: 28rpx;
+  opacity: 0.95;
+}
+
+.container {
+  padding: 32rpx;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 24rpx rgba(36, 46, 66, 0.08);
+}
+
+.progress-card { padding: 28rpx; }
+.card-title { font-size: 32rpx; font-weight: 700; }
+.card-metrics { display: flex; align-items: baseline; gap: 8rpx; margin-top: 16rpx; }
+.num-lg { font-size: 48rpx; font-weight: 800; color: #333; }
+.num-split { font-size: 36rpx; font-weight: 700; color: #667eea; }
+.num-goal { font-size: 36rpx; font-weight: 700; color: #667eea; }
+.num-unit { font-size: 24rpx; color: #8A8F9C; margin-left: 6rpx; }
+.num-strong { font-weight: 800; }
+.streak { color: #555; }
+
+.spacer-12 { height: 12rpx; }
+.spacer-16 { height: 16rpx; }
+
+.grid {
+  margin-top: 28rpx;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24rpx;
+}
+.grid-card { padding: 24rpx; display: flex; flex-direction: column; gap: 12rpx; }
+.grid-title { color: #8A8F9C; font-size: 26rpx; }
+.grid-num { font-size: 40rpx; font-weight: 800; color: #333; }
+.grid-unit { font-size: 24rpx; color: #8A8F9C; margin-left: 6rpx; }
+
+.actions { margin-top: 32rpx; display: flex; flex-direction: column; gap: 20rpx; }
+.btn-hero {
+  display: flex; align-items: center; justify-content: center;
+  height: 96rpx;
+  border-radius: 50rpx;
+  color: #fff;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  font-weight: 700; font-size: 30rpx;
+}
+.btn-outline {
+  display: flex; align-items: center; justify-content: center;
+  height: 96rpx;
+  border-radius: 50rpx;
+  color: #4C5BD4;
+  background: #E9ECFF;
+  font-weight: 700; font-size: 30rpx;
+}
+
+/* 按钮反馈动画 */
+.btn-press:active {
+  transform: scale(0.98);
+  opacity: 0.9;
+}
+
+/* 数字变化动画 */
+.num-animate {
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.num-animate {
+  animation: numberChange 0.3s ease;
+}
+
+@keyframes numberChange {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+

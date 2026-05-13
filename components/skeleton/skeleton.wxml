@@ -1,0 +1,32 @@
+<view class="skeleton" wx:if="{{loading}}">
+  <view wx:if="{{type === 'card'}}" class="skeleton-card">
+    <view class="skeleton-line" style="width: 60%; height: 40rpx; margin-bottom: 16rpx;"></view>
+    <view class="skeleton-line" style="width: 80%; height: 32rpx; margin-bottom: 12rpx;"></view>
+    <view class="skeleton-line" style="width: 100%; height: 28rpx;"></view>
+  </view>
+  
+  <view wx:if="{{type === 'list'}}" class="skeleton-list">
+    <block wx:for="{{count}}" wx:key="index">
+      <view class="skeleton-item">
+        <view class="skeleton-avatar"></view>
+        <view class="skeleton-content">
+          <view class="skeleton-line" style="width: 70%; height: 32rpx; margin-bottom: 12rpx;"></view>
+          <view class="skeleton-line" style="width: 90%; height: 28rpx;"></view>
+        </view>
+      </view>
+    </block>
+  </view>
+  
+  <view wx:if="{{type === 'grid'}}" class="skeleton-grid">
+    <block wx:for="{{count}}" wx:key="index">
+      <view class="skeleton-grid-item">
+        <view class="skeleton-line" style="width: 50%; height: 32rpx; margin-bottom: 12rpx;"></view>
+        <view class="skeleton-line" style="width: 80%; height: 40rpx;"></view>
+      </view>
+    </block>
+  </view>
+</view>
+
+
+
+

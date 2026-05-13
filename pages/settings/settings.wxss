@@ -1,0 +1,137 @@
+.settings-page {
+  background: #F5F7FF;
+  padding: 24rpx;
+  padding-bottom: 40rpx;
+}
+
+.card {
+  background: #fff;
+  border-radius: 20rpx;
+  box-shadow: 0 8rpx 24rpx rgba(36, 46, 66, 0.08);
+}
+
+.section {
+  margin-bottom: 30rpx;
+  padding: 24rpx;
+}
+
+.section-title {
+  font-size: 32rpx;
+  font-weight: 800;
+  padding-left: 16rpx;
+  border-left: 6rpx solid #5B7CFA;
+  margin-bottom: 20rpx;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.item-left {
+  flex: 1;
+  min-width: 0;
+}
+
+.label {
+  font-size: 30rpx;
+  color: #333;
+  font-weight: 600;
+}
+
+.desc {
+  font-size: 24rpx;
+  color: #8A8F9C;
+  margin-top: 6rpx;
+}
+
+.item-right {
+  display: flex;
+  align-items: center;
+}
+
+.radio {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+  border: 2rpx solid #DCDFE6;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.radio.checked {
+  border-color: #5B7CFA;
+  background: #5B7CFA;
+}
+
+.check {
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: 800;
+}
+
+.divider {
+  height: 2rpx;
+  background: #F0F2F8;
+  margin: 0 -24rpx;
+}
+
+.slider-wrap {
+  padding: 20rpx 0;
+}
+
+.picker-text {
+  color: #5B7CFA;
+  font-size: 28rpx;
+}
+
+.btn-export {
+  padding: 12rpx 24rpx;
+  border-radius: 40rpx;
+  background: #5B7CFA;
+  color: #fff;
+  font-size: 26rpx;
+  font-weight: 600;
+  border: none;
+}
+
+.btn-export::after {
+  border: none;
+}
+
+.btn-clear {
+  padding: 12rpx 24rpx;
+  border-radius: 40rpx;
+  background: #f87171;
+  color: #fff;
+  font-size: 26rpx;
+  font-weight: 600;
+  border: none;
+}
+
+.btn-clear::after {
+  border: none;
+}
+
+.about-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+}
+
+.about-label {
+  font-size: 28rpx;
+  color: #666;
+}
+
+.about-value {
+  font-size: 28rpx;
+  color: #333;
+  text-align: right;
+  flex: 1;
+  margin-left: 20rpx;
+}

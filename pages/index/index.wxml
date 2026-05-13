@@ -1,0 +1,57 @@
+<view class="page index-page">
+  <!-- 骨架屏 -->
+  <skeleton wx:if="{{loading}}" type="grid" count="4" />
+  
+  <!-- 顶部问候与词库 -->
+  <view wx:if="{{!loading}}" class="top-hero">
+    <view class="hero-row">
+      <view class="hero-greet">{{greeting}}</view>
+      <view class="hero-level">当前词库：{{levelText}}</view>
+    </view>
+  </view>
+
+  <view wx:if="{{!loading}}" class="container">
+    <!-- 学习进度卡片 -->
+    <view class="card progress-card">
+      <view class="card-title">今日学习进度</view>
+      <view class="card-metrics">
+        <text class="num-lg num-animate">{{user.todayLearned}}</text>
+        <text class="num-split">/</text>
+        <text class="num-goal">{{user.dailyGoal}}</text>
+        <text class="num-unit">个单词</text>
+      </view>
+      <view class="spacer-16"></view>
+      <progress-bar current="{{user.todayLearned}}" total="{{user.dailyGoal}}" />
+      <view class="spacer-12"></view>
+      <view class="streak">连续打卡 <text class="num-strong num-animate">{{user.continuousDays}}</text> 天 🔥</view>
+    </view>
+
+    <!-- 统计数据 2x2 网格 -->
+    <view class="grid">
+      <view class="grid-card card">
+        <view class="grid-title">累计学习</view>
+        <view class="grid-num num-animate">{{user.totalDays}}<text class="grid-unit"> 天</text></view>
+      </view>
+      <view class="grid-card card">
+        <view class="grid-title">已学单词</view>
+        <view class="grid-num num-animate">{{learnedCount}}<text class="grid-unit"> 个</text></view>
+      </view>
+      <view class="grid-card card">
+        <view class="grid-title">生词本</view>
+        <view class="grid-num num-animate">{{wordbookCount}}<text class="grid-unit"> 个</text></view>
+      </view>
+      <view class="grid-card card">
+        <view class="grid-title">掌握率</view>
+        <view class="grid-num num-animate">{{masteryRate}}<text class="grid-unit"> %</text></view>
+      </view>
+    </view>
+
+    <!-- 操作按钮 -->
+    <view class="actions">
+      <button class="btn-hero btn-press" bindtap="goLearn">开始学习</button>
+      <button class="btn-outline btn-press" bindtap="goTest">单词测试</button>
+    </view>
+  </view>
+</view>
+
+

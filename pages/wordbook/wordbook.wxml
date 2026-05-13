@@ -1,0 +1,52 @@
+<view class="page wordbook-page">
+  <!-- 顶部区域 -->
+  <view class="top">
+    <view class="title">生词本</view>
+    <view class="subtitle">共 {{counts.all}} 个</view>
+    <view class="tabs">
+      <view class="tab {{filter==='all'?'active':''}}" data-filter="all" bindtap="onSwitchFilter">全部({{counts.all}})</view>
+      <view class="tab {{filter==='unreviewed'?'active':''}}" data-filter="unreviewed" bindtap="onSwitchFilter">未复习({{counts.unreviewed}})</view>
+      <view class="tab {{filter==='reviewed'?'active':''}}" data-filter="reviewed" bindtap="onSwitchFilter">已复习({{counts.reviewed}})</view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view wx:if="{{displayList.length === 0}}" class="empty">
+    <view class="emoji">📚</view>
+    <view class="tip">生词本空空如也</view>
+    <button class="btn-hero" bindtap="goLearn">去学习</button>
+  </view>
+
+  <!-- 列表 -->
+  <view class="container" wx:if="{{displayList.length > 0}}">
+    <block wx:for="{{displayList}}" wx:key="wordId">
+      <view class="card item" animation="{{item.anim}}" data-index="{{index}}" bindtap="toggleExpand">
+        <view class="row">
+          <view class="main">
+            <view class="word">{{item.word}}</view>
+            <view class="phonetic">{{item.phonetic}}</view>
+            <view class="translation">{{item.translation}}</view>
+            <view class="meta">添加于 {{item.relativeTime}} · 已复习{{item.reviewCount || 0}}次</view>
+          </view>
+          <view class="actions">
+            <view class="speak" catchtap="onSpeak" data-word="{{item.word}}">🔊</view>
+          </view>
+        </view>
+        <view wx:if="{{item.expanded}}" class="expand">
+          <view class="example en">{{item.example}}</view>
+          <view class="example cn">{{item.exampleTranslation}}</view>
+          <view class="exp-actions">
+            <button class="btn-outline" catchtap="onRemove" data-index="{{index}}">移出生词本</button>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="footer" wx:if="{{counts.all > 0}}">
+    <button class="btn-hero" bindtap="startReview">开始复习</button>
+  </view>
+</view>
+
+

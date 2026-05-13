@@ -1,0 +1,50 @@
+.learn-page { display: flex; flex-direction: column; height: 100vh; }
+.topbar { display: flex; align-items: center; justify-content: space-between; padding: 24rpx 28rpx; font-size: 28rpx; color: #333; }
+.top-center { font-weight: 800; }
+.press-active { transform: scale(0.98); opacity: 0.9; }
+
+.content { display: flex; flex-direction: column; padding: 0 28rpx 28rpx; flex: 1; }
+.content > view { margin-bottom: 24rpx; }
+.content > view:last-child { margin-bottom: 0; }
+.card { background: #fff; border-radius: 30rpx; box-shadow: 0 12rpx 36rpx rgba(0,0,0,0.08); }
+
+.progress-wrap { padding: 20rpx; }
+
+.word-card { padding: 40rpx 32rpx; display: flex; flex-direction: column; min-height: 200rpx; }
+.word-card > view { margin-bottom: 16rpx; }
+.word-card > view:last-child { margin-bottom: 0; }
+.word { font-size: 60rpx; font-weight: 800; color: #111; }
+.phonetic { font-size: 32rpx; color: #8A8F9C; }
+.translation { font-size: 36rpx; color: #222; margin-top: 8rpx; }
+.example { font-size: 28rpx; color: #666; }
+.example.en { font-style: italic; }
+.example.cn { color: #8A8F9C; }
+.stars { margin-top: 12rpx; }
+.star { font-size: 28rpx; opacity: 0.35; }
+.star.on { opacity: 1; }
+
+.actions { margin-top: auto; display: grid; grid-template-columns: 1fr 120rpx 1fr; align-items: center; gap: 20rpx; }
+.btn { height: 96rpx; border-radius: 50rpx; display: flex; align-items: center; justify-content: center; color: #fff; font-weight: 700; font-size: 30rpx; transition: all 0.2s ease; }
+.btn.bad { background: linear-gradient(135deg, #ff6a6a 0%, #ff416c 100%); }
+.btn.bad:active { transform: scale(0.95); opacity: 0.9; }
+.btn.good { background: linear-gradient(135deg, #34d399 0%, #10b981 100%); }
+.btn.good:active { transform: scale(0.95); opacity: 0.9; }
+.btn-audio { width: 120rpx; height: 120rpx; border-radius: 60rpx; background: linear-gradient(135deg, #5B7CFA 0%, #7ed130 100%); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 40rpx; transition: all 0.2s ease; }
+.btn-audio:active { transform: scale(0.9); }
+
+/* 进度条平滑动画（依赖组件内部width动态变化） */
+.progress-track { transition: none; }
+.progress-fill { transition: width 240ms ease; }
+
+.finish { padding: 40rpx 32rpx; display: flex; flex-direction: column; gap: 20rpx; align-items: center; text-align: center; }
+.finish-title { font-size: 36rpx; font-weight: 800; }
+.finish-sub { color: #8A8F9C; }
+
+.loading-state { padding: 80rpx 32rpx; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.loading-text { font-size: 28rpx; color: #8A8F9C; }
+
+.debug-info { padding: 40rpx 32rpx; background: #fff3cd; border: 2rpx solid #ffc107; border-radius: 20rpx; color: #856404; font-size: 24rpx; }
+.debug-info > view { margin-bottom: 8rpx; }
+.debug-info > view:last-child { margin-bottom: 0; font-family: monospace; }
+
+

@@ -1,0 +1,74 @@
+<view class="page test-page">
+  <!-- 顶部标题与模式切换 -->
+  <view class="top">
+    <view class="title">单词测试</view>
+    <view class="tabs">
+      <view class="tab {{mode==='en2cn'?'active':''}}" data-mode="en2cn" bindtap="switchMode">英译中</view>
+      <view class="tab {{mode==='cn2en'?'active':''}}" data-mode="cn2en" bindtap="switchMode">中译英</view>
+      <view class="tab {{mode==='spell'?'active':''}}" data-mode="spell" bindtap="switchMode">拼写测试</view>
+    </view>
+  </view>
+
+  <view class="container">
+    <!-- 题目编号 -->
+    <view wx:if="{{!finished}}" class="q-index">第 {{qIndex+1}}/{{totalQ}} 题</view>
+
+    <!-- 选择题区域：英译中 / 中译英 -->
+    <block wx:if="{{!finished && (mode==='en2cn' || mode==='cn2en')}}">
+      <view class="question card">
+        <text class="q-text">{{questionText}}</text>
+      </view>
+      <view class="options">
+        <block wx:for="{{options}}" wx:key="index" wx:for-item="option" wx:for-index="optIndex">
+          <view class="option card {{optionClasses[optIndex]}}" data-index="{{optIndex}}" bindtap="chooseOption" catchtap="chooseOption">
+            <view class="opt-prefix">{{['A','B','C','D'][optIndex]}}.</view>
+            <view class="opt-text">{{option}}</view>
+          </view>
+        </block>
+      </view>
+    </block>
+
+    <!-- 拼写题区域 -->
+    <block wx:if="{{!finished && mode==='spell'}}">
+      <view class="question card">
+        <text class="q-text">{{spellHint}}</text>
+      </view>
+      <view class="spell-area card">
+        <input class="spell-input" placeholder="请输入英文单词" value="{{spellInput}}" bindinput="onSpellInput" confirm-type="done" bindconfirm="submitSpell" focus="true"/>
+        <button class="btn-commit" bindtap="submitSpell">提交</button>
+      </view>
+    </block>
+
+    <!-- 反馈提示 -->
+    <view wx:if="{{feedback && feedback.show}}" animation="{{feedbackAnim}}" class="feedback {{feedback.correct? 'ok':'bad'}}" style="display: block;">
+      <view wx:if="{{feedback.correct}}" style="font-size: 48rpx; margin-bottom: 8rpx;">✓</view>
+      <view wx:else style="font-size: 48rpx; margin-bottom: 8rpx;">✗</view>
+      <view style="font-size: 32rpx; font-weight: 700;">
+        {{feedback.correct? '回答正确！' : '回答错误'}}
+      </view>
+      <view wx:if="{{!feedback.correct}}" style="font-size: 28rpx; margin-top: 8rpx; opacity: 0.9;">
+        正确答案：{{feedback.correctText}}
+      </view>
+    </view>
+
+    <!-- 下一题按钮 -->
+    <view wx:if="{{!finished && showNext}}" class="next-wrap">
+      <button class="btn-next" bindtap="nextQuestion">下一题</button>
+    </view>
+
+    <!-- 结果页 -->
+    <view wx:if="{{finished}}" class="result card">
+      <view class="res-title">测试完成</view>
+      <view class="res-line">正确率：{{correctCount}}/{{totalQ}}</view>
+      <view class="res-line">用时：{{duration.min}}分{{duration.sec}}秒</view>
+      <view class="res-line">错题：{{wrongList.length}} 个</view>
+      <view class="res-actions">
+        <button class="btn-hero" bindtap="viewWrong">查看错题</button>
+        <button class="btn-outline" bindtap="restart">再测一次</button>
+        <button class="btn-outline" bindtap="goHome">返回首页</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+

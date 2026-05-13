@@ -1,0 +1,19 @@
+<view class="word-card card">
+  <view style="display:flex; justify-content:space-between; align-items:center;">
+    <view>
+      <view style="font-size:40rpx; font-weight:800;">{{word}}</view>
+      <view class="text-muted" style="margin-top: 6rpx;">{{phonetic}}</view>
+    </view>
+    <view style="display:flex; gap: 16rpx;">
+      <button class="btn-secondary" size="mini" bindtap="onVoice">发音</button>
+      <button class="btn-primary" size="mini" bindtap="onFavorite">{{isFavorite ? '已收藏' : '收藏'}}</button>
+    </view>
+  </view>
+  <view style="margin-top: 16rpx;">{{meaning}}</view>
+  <view style="margin-top: 12rpx;" class="text-muted">{{example}}</view>
+</view>
+
+
+
+
+

@@ -1,0 +1,50 @@
+<view class="page learn-page">
+  <!-- 顶部导航栏 -->
+  <view class="topbar">
+    <view class="top-left" bindtap="onBack" hover-class="press-active">返回</view>
+    <view class="top-center">{{displayIndex}}/{{targetCount}}</view>
+    <view class="top-right" bindtap="onClose" hover-class="press-active">关闭</view>
+  </view>
+
+  <view class="content">
+    <!-- 进度条 -->
+    <view class="progress-wrap card">
+      <progress-bar current="{{displayIndex}}" total="{{targetCount}}" />
+    </view>
+
+    <!-- 单词卡片 -->
+    <view wx:if="{{current && current.word}}" class="word-card card">
+      <view class="word">{{current.word}}</view>
+      <view class="phonetic" wx:if="{{current.phonetic}}">{{current.phonetic}}</view>
+      <view class="translation" wx:if="{{current.translation}}">{{current.translation}}</view>
+      <view class="example en" wx:if="{{current.example}}">{{current.example}}</view>
+      <view class="example cn" wx:if="{{current.exampleTranslation}}">{{current.exampleTranslation}}</view>
+      <view class="stars" wx:if="{{current.frequency}}">
+        <block wx:for="{{[1,2,3,4,5]}}" wx:key="*this">
+          <text class="star {{item <= current.frequency ? 'on' : ''}}">⭐</text>
+        </block>
+      </view>
+    </view>
+    
+    <!-- 加载状态 -->
+    <view wx:if="{{loading && (!current || !current.word)}}" class="loading-state">
+      <view class="loading-text">正在加载单词...</view>
+    </view>
+
+    <!-- 完成态 -->
+    <view wx:if="{{finished}}" class="finish card">
+      <view class="finish-title">今日学习完成！</view>
+      <view class="finish-sub">干得漂亮～已更新打卡与今日学习数</view>
+      <button class="btn-hero" bindtap="onClose">返回首页</button>
+    </view>
+
+    <!-- 底部操作区域 -->
+    <view wx:if="{{!finished}}" class="actions">
+      <button class="btn bad" hover-class="press-active" bindtap="onUnknown">不认识</button>
+      <view class="btn-audio" hover-class="press-active" bindtap="onSpeak">🔊</view>
+      <button class="btn good" hover-class="press-active" bindtap="onKnown">认识</button>
+    </view>
+  </view>
+</view>
+
+
